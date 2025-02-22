@@ -5,6 +5,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignments</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Assignment Section Styling */
+        .assignment-list {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+        }
+
+        .assignment-list h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        #assignment-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+
+        /* Assignment Button Styling */
+        .assignment-btn {
+            background-color: #e9a800; /* Original color (Yellow) */
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .assignment-btn:hover {
+            background-color: #b97b00; /* Darker yellow */
+            transform: translateY(-5px);
+        }
+
+        .assignment-btn:focus {
+            outline: none;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #1d1f2f;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            border-top: 3px solid #e9a800;  /* Original yellow color */
+            border-radius: 0 0 8px 8px;
+        }
+
+        /* Toggle Button for Night/Day Mode */
+        .toggle-btn {
+            background-color: #e9a800;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            transition: background-color 0.3s ease;
+            z-index: 999;
+        }
+
+        .toggle-btn:hover {
+            background-color: #b97b00;
+        }
+
+        /* Modernize Button - Clean and Minimal */
+        .assignment-btn {
+            background-color: #f1a800; /* Slightly lighter yellow */
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px; /* Rounded corners */
+            transition: transform 0.2s ease-in-out, background-color 0.3s ease-in-out;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            font-weight: 600;
+        }
+
+        .assignment-btn:hover {
+            background-color: #e89e00; /* Darker yellow on hover */
+            transform: translateY(-3px);
+        }
+
+        .assignment-btn:focus {
+            outline: none;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -19,7 +126,7 @@
 
     <main>
         <section class="assignment-list">
-            <h2>Available Assignments</h2><br><br>
+            <h2>Available Assignments</h2>
             <div id="assignment-buttons">
                 <!-- Dynamically generated buttons will appear here -->
             </div>
