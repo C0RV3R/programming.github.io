@@ -364,6 +364,8 @@ body.dark .info-section:hover {
       --gradient-angle: 1turn;
     }
   }
+ 
+
 
 /* Small Screen Adaptation */
 @media (max-width: 768px) {

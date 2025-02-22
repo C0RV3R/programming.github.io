@@ -24,6 +24,7 @@ toggleBtn.addEventListener('click', () => {
 });
 
 
+
 // Scroll event to move the copy button when scrolling the code box
 document.addEventListener("DOMContentLoaded", function () {
     const copyButton = document.querySelector('.copy-btn');
