@@ -3,26 +3,38 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
 
 /* Body Styling */
 body {
-    font-family: 'Arial', sans-serif;
     background-color: #f7f7f7;
     color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode */
+body.dark {
+    background-color: #121212;
+    color: #e0e0e0;
 }
 
 /* Header */
 header {
     background-color: #1d1f2f;
     color: white;
-    padding: 20px;
+    padding: 30px 20px;
     text-align: center;
+    border-bottom: 3px solid #e9a800;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* Header Text */
 header h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
+    font-weight: 600;
 }
 
 header p {
@@ -33,8 +45,9 @@ header p {
 /* Navigation */
 nav {
     background-color: #4e5d6a;
-    padding: 10px;
+    padding: 12px;
     text-align: center;
+    border-radius: 0 0 8px 8px;
 }
 
 nav a {
@@ -42,6 +55,7 @@ nav a {
     margin: 0 15px;
     text-decoration: none;
     font-size: 1.1rem;
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
@@ -50,23 +64,33 @@ nav a:hover {
 
 /* Main Content */
 main {
-    padding: 40px;
+    padding: 40px 20px;
     text-align: center;
 }
 
+/* Assignments */
 .assignment {
     background-color: #fff;
     padding: 30px;
     margin: 20px 0;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+body.dark .assignment {
+    background-color: #2a2a2a;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Assignment Title */
 .assignment h2 {
     font-size: 2rem;
     margin-bottom: 20px;
+    font-weight: 600;
 }
 
+/* Assignment Button */
 .assignment button {
     padding: 12px 20px;
     font-size: 1.2rem;
@@ -91,4 +115,25 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+    border-top: 3px solid #e9a800;
+    border-radius: 0 0 8px 8px;
+}
+
+/* Toggle Button for Night/Day Mode */
+.toggle-btn {
+    background-color: #e9a800;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-btn:hover {
+    background-color: #b97b00;
 }
