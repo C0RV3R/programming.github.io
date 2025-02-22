@@ -15,11 +15,112 @@
         <section>
             <h2>Programming Assignment 1</h2>
             <p>This page is dedicated to Assignment 1.</p>
+
+            <h3>Java Code Example:</h3>
+            <pre>
+package javaapplication2;
+
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import java.awt.Color;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author ATLASCOMPUTERSCIENCE 
+ */
+public class NewJFrame extends javax.swing.JFrame {
+
+    public NewJFrame() {
+        initComponents();
+        getContentPane().setBackground(Color.gray);
+        Image img = new ImageIcon(this.getClass().getResource("/logo.png")).getImage();
+        this.setIconImage(img);
+    }
+
+    @SuppressWarnings("unchecked")
+    private void initComponents() {
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
+        result = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        jToggleButton1 = new javax.swing.JToggleButton();
+        Name1 = new javax.swing.JLabel();
+        Surname1 = new javax.swing.JLabel();
+        Age2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Name2 = new javax.swing.JTextPane();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        Surname2 = new javax.swing.JTextPane();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        Age1 = new javax.swing.JTextPane();
+        jToggleButton2 = new javax.swing.JToggleButton();
+        result1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(102, 102, 102));
+
+        jToggleButton1.setText("Exit");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+
+        Name1.setText("Name =");
+        Surname1.setText("Surname = ");
+        Age2.setText("Age =");
+
+        jToggleButton2.setText("Send");
+        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Code by Emre Selvitopu");
+
+        pack();
+    }
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+        System.exit(0);
+    }
+
+    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+        String name = Name2.getText();      
+        String surname = Surname2.getText();
+        String age = Age1.getText();
+        try {
+            int ageInt = Integer.parseInt(age);
+            System.out.println("Name: " + name + ", Surname: " + surname + ", Age: " + age);
+            result1.setText("Name: " + name + ", Surname: " + surname + ", Age: " + age);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Age is not an integer!", "Error", JOptionPane.ERROR_MESSAGE);
+            result1.setText("Age has to be an integer!");
+            System.out.println("Age has to be an integer!");
+        }
+    }
+
+    public static void main(String args[]) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new NewJFrame().setVisible(true);
+            }
+        });
+    }
+}
+            </pre>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2025 All Rights Reserved.</p>
+        <a href="http://atlascomputerscience.com">Back to Home</a>
     </footer>
+
 </body>
 </html>
