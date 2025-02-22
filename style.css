@@ -13,6 +13,22 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+.about-me-btn {
+    display: inline-block;
+    padding: 4px 10px; /* Butonun boyutunu küçültüyoruz */
+    font-size: 12px; /* Yazı boyutunu küçültüyoruz */
+    background-color: #035c97; /* Buton rengi */
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 20px; /* Yumuşak hatlı, yuvarlak köşeler */
+    transition: background-color 0.3s ease;
+}
+
+.about-me-btn:hover {
+    background-color: #e9a800; /* Hover efekti */
+}
+
 /* Dark Mode */
 body.dark {
     background-color: #121212;
@@ -127,6 +143,16 @@ footer {
     width: 100%;
     border-top: 3px solid #e9a800;
     border-radius: 0 0 8px 8px;
+}
+
+.about-link {
+    color: #95a5a6; /* Lighter color than footer for the text */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.about-link:hover {
+    color: #ecf0f1; /* Lighter color when hovered */
 }
 
 /* Toggle Button for Night/Day Mode */
@@ -272,6 +298,24 @@ h2 {
     color: #2980b9;
     text-decoration: underline;
 }
+
+.about-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db; /* Blue color */
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.about-btn:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+}
+
+
 
 
 /* Hover effect for the info section */
