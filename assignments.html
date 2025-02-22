@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignments</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Atlas Computer Science</h1>
+    </header>
+
+    <nav>
+        <a href="index.html" class="nav-btn">Home</a>
+        <a href="assignments.html" class="nav-btn">Assignments</a>
+        <a href="https://atlascs.proboards.com" target="_blank" class="nav-btn">Forum</a>
+    </nav>
+
+    <main>
+        <section class="assignment-list">
+            <h2>Available Assignments</h2><br><br>
+            <div id="assignment-buttons">
+                <!-- Dynamically generated buttons will appear here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 All Rights Reserved</p>
+    </footer>
+
+    <button class="toggle-btn">🌙</button>
+
+    <script src="theme-toggle.js"></script>
+    <script>
+        // List of assignments with display name and file path
+        const assignments = [
+            { name: 'LabWork #1 (Java)', file: 'assignment1.html' }
+        ];
+
+        // Function to dynamically create buttons for each assignment
+        window.onload = function() {
+            const buttonContainer = document.getElementById('assignment-buttons');
+            
+            // Check if there are any assignments
+            if (assignments.length === 0) {
+                // If no assignments, hide the button container
+                buttonContainer.style.display = 'none';
+            } else {
+                // If assignments exist, create the buttons
+                assignments.forEach(assignment => {
+                    // Create a button for each assignment
+                    const button = document.createElement('button');
+                    button.textContent = `Go to ${assignment.name}`; // Display the name of the assignment
+                    button.classList.add('assignment-btn');
+                    button.onclick = () => window.location.href = assignment.file;
+                    buttonContainer.appendChild(button);
+                });
+            }
+        };
+    </script>
+</body>
+</html>

@@ -21,7 +21,7 @@ body.dark {
 
 /* Header */
 header {
-    background-color: #1d1f2f;
+    background-color: #035c97;
     color: white;
     padding: 30px 20px;
     text-align: center;
@@ -30,21 +30,15 @@ header {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Header Text */
 header h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
     font-weight: 600;
 }
 
-header p {
-    font-size: 1.2rem;
-    font-weight: 300;
-}
-
 /* Navigation */
 nav {
-    background-color: #4e5d6a;
+    background-color: #1d1f2f;
     padding: 12px;
     text-align: center;
     border-radius: 0 0 8px 8px;
@@ -68,42 +62,58 @@ main {
     text-align: center;
 }
 
-/* Assignments */
-.assignment {
-    background-color: #fff;
-    padding: 30px;
-    margin: 20px 0;
+/* Code Container */
+.code-container {
+    text-align: left;
+    margin: 0 auto;
+    max-width: 90%;
+    width: 1000px;
+}
+
+/* Code Box */
+.code-box {
+    background-color: #1e1e1e;
+    position: relative;
+    overflow-y: scroll;
+    max-height: 500px;
+    padding: 0;
     border-radius: 8px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-body.dark .assignment {
-    background-color: #2a2a2a;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* Assignment Title */
-.assignment h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    font-weight: 600;
-}
-
-/* Assignment Button */
-.assignment button {
-    padding: 12px 20px;
-    font-size: 1.2rem;
-    background-color: #4e5d6a;
-    color: white;
-    border: none;
+/* Copy Button Styling (inside code box) */
+.copy-btn {
+    background-color: transparent;
+    color: #e9a800;
+    border: 1px solid #e9a800;
+    padding: 8px 16px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.assignment button:hover {
+.copy-btn:hover {
     background-color: #e9a800;
+    color: #fff;
+}
+
+/* Scrollbar Styling */
+.code-box::-webkit-scrollbar {
+    width: 10px;
+    background-color: #333;
+}
+
+.code-box::-webkit-scrollbar-thumb {
+    background-color: #666;
+    border-radius: 10px;
+}
+
+.code-box::-webkit-scrollbar-thumb:hover {
+    background-color: #999;
 }
 
 /* Footer */
@@ -119,28 +129,6 @@ footer {
     border-radius: 0 0 8px 8px;
 }
 
-/* Java kodu stil */
-pre code {
-    background-color: #2a2a2a;
-    color: #e0e0e0;
-    padding: 15px;
-    border-radius: 8px;
-    overflow-x: auto;
-    white-space: pre-wrap;
-    font-family: 'Courier New', Courier, monospace;
-}
-
-/* Gece/Gündüz Modu */
-body.dark {
-    background-color: #121212;
-    color: #e0e0e0;
-}
-
-body.dark pre code {
-    background-color: #1e1e1e;
-}
-
-
 /* Toggle Button for Night/Day Mode */
 .toggle-btn {
     background-color: #e9a800;
@@ -151,11 +139,108 @@ body.dark pre code {
     font-size: 1.1rem;
     cursor: pointer;
     position: fixed;
-    top: 20px;
-    right: 20px;
+    bottom: 27px;
+    left: 20px;
     transition: background-color 0.3s ease;
+    z-index: 999;
 }
 
 .toggle-btn:hover {
     background-color: #b97b00;
+}
+
+/* Assignment Button Styling */
+.assignment-btn {
+    background-color: #e9a800;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.assignment-btn:hover {
+    background-color: #b97b00;
+    transform: translateY(-5px);
+}
+
+.assignment-btn:focus {
+    outline: none;
+}
+
+/* Info Section Styling */
+.info-section {
+    background-color: #ffffff;
+    color: #333;
+    border-radius: 15px;
+    padding: 40px 30px;
+    margin: 50px auto;
+    max-width: 900px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Info Text Styling */
+.info-text {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #555;
+    font-weight: 400;
+    text-align: justify;
+    margin-bottom: 30px;
+    position: relative;
+    transition: none; /* Remove any hover effect */
+}
+
+/* Removed hover effect on info text */
+
+/* Adding a gradient border effect */
+.info-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 15px;
+    background: linear-gradient(45deg, #e9a800, #f6c400, #ffb600);
+    padding: 3px;
+    z-index: -1;
+    filter: blur(5px);
+    transform: scale(1.05);
+}
+
+/* Hover effect for the info section */
+
+/* Dark Mode Styling */
+body.dark .info-section {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+}
+
+body.dark .info-text {
+    color: #ccc;
+}
+
+body.dark .info-section:hover {
+    background-color: #444;
+}
+
+/* Small Screen Adaptation */
+@media (max-width: 768px) {
+    .info-section {
+        padding: 25px 15px;
+        margin: 30px auto;
+    }
+
+    .info-text {
+        font-size: 1.1rem;
+    }
 }

@@ -7,20 +7,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <header class="header-animate">
         <h1>Atlas Computer Science</h1>
     </header>
 
     <nav>
-        <a href="#">Home</a>
-        <a href="#">Assignments</a>
-        <a href="https://atlascs.proboards.com" target="_blank">Forum</a> <!-- Forum link updated -->
+        <a href="index.html" class="nav-btn">Home</a>
+        <a href="assignments.html" class="nav-btn">Assignments</a>
+        <a href="https://atlascs.proboards.com" target="_blank" class="nav-btn">Forum</a>
     </nav>
+
+    <section class="info-section info-animate">
+        <p class="info-text">This website was created by a Software Engineering student of Atlas University for the Programming students of Atlas University. Programming students can find previous lab works on this website.</p>
+    </section>
 
     <main>
         <section class="assignment">
-            <h2>Latest Assignment</h2>
-            <button onclick="window.location.href='assignment1.html'">Go to Assignment 1</button>
+            <h2>Latest Assignment</h2><br><br>
+            <button class="assignment-btn" onclick="window.location.href='assignment1.html'">LabWork #1 (Java)</button>
         </section>
     </main>
 
