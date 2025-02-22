@@ -217,6 +217,63 @@ footer {
     transform: scale(1.05);
 }
 
+.game-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.game-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.game-btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.game-btn:focus {
+    outline: none;
+}
+
+.game-btn:active {
+    transform: translateY(2px);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #333;
+}
+
+.read-more-link {
+    display: inline-block;
+    color: #3498db;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: color 0.3s ease;
+}
+
+.read-more-link:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+
 /* Hover effect for the info section */
 
 /* Dark Mode Styling */
