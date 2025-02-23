@@ -439,8 +439,24 @@ body.dark .info-section:hover {
     border-radius: 8px;
     width: 100%;
     box-sizing: border-box;
+    transition: all 0.3s ease; /* Pürüzsüz geçiş için */
 }
 
+/* iOS gibi cihazlar için alternatif tam ekran */
+.code-box.pseudo-fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    max-height: none;
+    z-index: 9999;
+    padding: 10px;
+    margin: 0;
+    border-radius: 0;
+}
+
+/* Tam ekran API'si için */
 .code-box:fullscreen {
     width: 100vw;
     height: 100vh;
@@ -450,7 +466,6 @@ body.dark .info-section:hover {
     border-radius: 0;
 }
 
-/* Safari için */
 .code-box:-webkit-full-screen {
     width: 100vw;
     height: 100vh;
@@ -460,6 +475,7 @@ body.dark .info-section:hover {
     border-radius: 0;
 }
 
+/* Mevcut stilleriniz (kısaltılmış) */
 .fullscreen-btn {
     background-color: transparent;
     color: #e9a800;
@@ -476,37 +492,6 @@ body.dark .info-section:hover {
 .fullscreen-btn:hover {
     color: #fff;
     transform: scale(1.2);
-}
-
-.fullscreen-btn:focus {
-    outline: none;
-}
-
-/* Mobil uyumlu düzenlemeler */
-@media (max-width: 768px) {
-    .code-box {
-        max-height: 400px;
-        padding: 8px;
-    }
-
-    .fullscreen-btn {
-        font-size: 24px;
-        top: 8px;
-        left: 8px;
-    }
-}
-
-@media (max-width: 480px) {
-    .code-box {
-        max-height: 350px;
-        padding: 6px;
-    }
-
-    .fullscreen-btn {
-        font-size: 20px;
-        top: 6px;
-        left: 6px;
-    }
 }
 
 

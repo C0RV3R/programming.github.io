@@ -37,55 +37,68 @@ fullscreenBtn.addEventListener('click', () => {
 });
 
 function enterFullscreen() {
-    const fullscreenPromise = codeBox.requestFullscreen?.() ||
-                              codeBox.webkitRequestFullscreen?.() || // Safari ve eski Android
-                              codeBox.mozRequestFullScreen?.() ||   // Firefox
-                              codeBox.msRequestFullscreen?.();      // IE/Edge
+    // Tam ekran API'sini destekleyip desteklemediğini kontrol et
+    if (document.fullscreenEnabled || document.webkitFullscreenEnabled) {
+        const fullscreenPromise = codeBox.requestFullscreen?.() ||
+                                  codeBox.webkitRequestFullscreen?.();
 
-    if (fullscreenPromise) {
-        fullscreenPromise
-            .then(() => {
-                fullscreenBtn.textContent = "↙";
-                isFullscreen = true;
-            })
-            .catch((err) => {
-                console.error("Tam ekran başlatılamadı:", err);
-                alert("Bu tarayıcı tam ekran modunu desteklemiyor veya izin verilmedi.");
-            });
+        if (fullscreenPromise) {
+            fullscreenPromise
+                .then(() => {
+                    fullscreenBtn.textContent = "↙";
+                    isFullscreen = true;
+                })
+                .catch((err) => {
+                    console.error("Tam ekran başlatılamadı:", err);
+                    fallbackFullscreen(); // iOS için alternatif çözüm
+                });
+        } else {
+            fallbackFullscreen(); // API yoksa alternatif
+        }
     } else {
-        alert("Tarayıcınız tam ekran modunu desteklemiyor.");
+        fallbackFullscreen(); // Tam ekran desteklenmiyorsa alternatif
     }
 }
 
 function exitFullscreen() {
-    const exitPromise = document.exitFullscreen?.() ||
-                        document.webkitExitFullscreen?.() ||  // Safari
-                        document.mozCancelFullScreen?.() ||   // Firefox
-                        document.msExitFullscreen?.();        // IE/Edge
+    if (document.fullscreenElement || document.webkitFullscreenElement) {
+        const exitPromise = document.exitFullscreen?.() ||
+                            document.webkitExitFullscreen?.();
 
-    if (exitPromise) {
-        exitPromise
-            .then(() => {
-                fullscreenBtn.textContent = "↗";
-                isFullscreen = false;
-            })
-            .catch((err) => {
-                console.error("Tam ekrandan çıkılamadı:", err);
-            });
+        if (exitPromise) {
+            exitPromise
+                .then(() => {
+                    fullscreenBtn.textContent = "↗";
+                    isFullscreen = false;
+                })
+                .catch((err) => {
+                    console.error("Tam ekrandan çıkılamadı:", err);
+                });
+        }
+    } else {
+        // Alternatif tam ekrandan çık
+        codeBox.classList.remove('pseudo-fullscreen');
+        fullscreenBtn.textContent = "↗";
+        isFullscreen = false;
     }
 }
 
-// Tam ekran değişimini dinleme (örneğin, kullanıcı ESC tuşuyla çıkarsa)
+function fallbackFullscreen() {
+    // iOS gibi cihazlar için tam ekran alternatifi
+    codeBox.classList.add('pseudo-fullscreen');
+    fullscreenBtn.textContent = "↙";
+    isFullscreen = true;
+}
+
+// Tam ekran değişimini dinleme
 document.addEventListener('fullscreenchange', updateFullscreenState);
 document.addEventListener('webkitfullscreenchange', updateFullscreenState);
-document.addEventListener('mozfullscreenchange', updateFullscreenState);
-document.addEventListener('MSFullscreenChange', updateFullscreenState);
 
 function updateFullscreenState() {
-    if (!document.fullscreenElement && !document.webkitFullscreenElement && 
-        !document.mozFullScreenElement && !document.msFullscreenElement) {
+    if (!document.fullscreenElement && !document.webkitFullscreenElement) {
         fullscreenBtn.textContent = "↗";
         isFullscreen = false;
+        codeBox.classList.remove('pseudo-fullscreen');
     }
 }
 
