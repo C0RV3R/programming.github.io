@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atlas Computer Science</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 
     <!-- Prism.js CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-okaidia.min.css" rel="stylesheet" />
@@ -20,48 +20,43 @@
 
     <!-- Navigation -->
     <nav>
-        <a href="index.html" class="nav-btn">Home</a>
-        <a href="assignments.html" class="nav-btn">Assignments</a>
+        <a href="../index.html" class="nav-btn">Home</a>
+        <a href="../assignments.html" class="nav-btn">Assignments</a>
         <a href="https://atlascs.proboards.com" target="_blank" class="nav-btn">Forum</a>
-        <a href="games.html" class="nav-btn">Games</a>
-        <a href="about.html" class="nav-btn">About</a>
+        <a href="../games.html" class="nav-btn">Games</a>
+        <a href="../about.html" class="nav-btn">About</a>
     </nav>
 
     <main>
         <section class="code-container">
-            <h2>C Code For LabWork #5</h2><br>
+            <h2>Java Code For LabWork #1</h2><br>
             <div class="code-box">
                 <pre><code class="language-javascript">
-#include <stdio.h>
+package javaapplication2;
 
-struct Books { 
-    char name[50];
-    char author[50];
-    int nop;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import java.awt.Color;
+import javax.swing.JOptionPane;
 
+/**
+ *
+ * @author ATLAS
+ */
+public class NewJFrame extends javax.swing.JFrame {
 
-};
-
-int main() {
-
-    struct Books book[3];
-    for (int i=0; i<3; i++) {
-        printf("Enter details for Book %d:\n", i+1);
-        printf("Book Name: ");
-        scanf("%s", &book[i].name);
-        printf("Number of pages: ");
-        scanf("%d", &book[i].nop);
-        printf("Author: ");
-        scanf("%s", &book[i].author);
-    }
-    printf("\nStudent Details:\n");
-    for (int i = 0; i < 3; i++) {
-        printf("Book Name: %s, Number of pages: %d, Author: %s\n", book[i].name, book[i].nop, book[i].author);
+    /**
+     * Creates new form NewJFrame
+     */
+    
+    public NewJFrame() {
+        initComponents();
+        getContentPane().setBackground(Color.gray);
+        Image img = new ImageIcon(this.getClass().getResource("/logo.png")).getImage();
+        this.setIconImage(img);
     }
 
-    return 0;
-
-}
+    // rest of the Java code...
                 </code></pre>
                 <button class="copy-btn" onclick="copyCode()">Copy</button>
             </div>
@@ -78,7 +73,7 @@ int main() {
     <button class="toggle-btn">🌙</button>
 
     <!-- External JS for Theme Toggle -->
-    <script src="theme-toggle.js"></script>
+    <script src="../assets/js/theme-toggle.js"></script>
     <script>
         // JavaScript for Copy button functionality
         function copyCode() {
