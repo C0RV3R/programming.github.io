@@ -26,81 +26,42 @@ toggleBtn.addEventListener('click', () => {
 const fullscreenBtn = document.querySelector('.fullscreen-btn');
 const codeBox = document.querySelector('.code-box');
 
-let isFullscreen = false;
-
 fullscreenBtn.addEventListener('click', () => {
-    if (!isFullscreen) {
-        enterFullscreen();
-    } else {
-        exitFullscreen();
+    if (window.innerWidth > 768) {  
+        if (!document.fullscreenElement) {
+            if (codeBox.requestFullscreen) {
+                codeBox.requestFullscreen();
+            } else if (codeBox.mozRequestFullScreen) { 
+                codeBox.mozRequestFullScreen();
+            } else if (codeBox.webkitRequestFullscreen) { 
+                codeBox.webkitRequestFullscreen();
+            } else if (codeBox.msRequestFullscreen) { 
+                codeBox.msRequestFullscreen();
+            }
+            fullscreenBtn.textContent = "↙"; 
+        } else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.mozCancelFullScreen) { 
+                document.mozCancelFullScreen();
+            } else if (document.webkitExitFullscreen) { 
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) { 
+                document.msExitFullscreen();
+            }
+            fullscreenBtn.textContent = "↗"; 
+        }
+    } else {  
+        if (codeBox.style.maxHeight === '100vh') {
+            codeBox.style.maxHeight = '500px'; 
+            fullscreenBtn.textContent = "↗"; 
+        } else {
+            codeBox.style.maxHeight = '100vh'; 
+            fullscreenBtn.textContent = "↙"; 
+        }
     }
 });
 
-function enterFullscreen() {
-    // Tam ekran API'sini destekleyip desteklemediğini kontrol et
-    if (document.fullscreenEnabled || document.webkitFullscreenEnabled) {
-        const fullscreenPromise = codeBox.requestFullscreen?.() ||
-                                  codeBox.webkitRequestFullscreen?.();
-
-        if (fullscreenPromise) {
-            fullscreenPromise
-                .then(() => {
-                    fullscreenBtn.textContent = "↙";
-                    isFullscreen = true;
-                })
-                .catch((err) => {
-                    console.error("Tam ekran başlatılamadı:", err);
-                    fallbackFullscreen(); // iOS için alternatif çözüm
-                });
-        } else {
-            fallbackFullscreen(); // API yoksa alternatif
-        }
-    } else {
-        fallbackFullscreen(); // Tam ekran desteklenmiyorsa alternatif
-    }
-}
-
-function exitFullscreen() {
-    if (document.fullscreenElement || document.webkitFullscreenElement) {
-        const exitPromise = document.exitFullscreen?.() ||
-                            document.webkitExitFullscreen?.();
-
-        if (exitPromise) {
-            exitPromise
-                .then(() => {
-                    fullscreenBtn.textContent = "↗";
-                    isFullscreen = false;
-                })
-                .catch((err) => {
-                    console.error("Tam ekrandan çıkılamadı:", err);
-                });
-        }
-    } else {
-        // Alternatif tam ekrandan çık
-        codeBox.classList.remove('pseudo-fullscreen');
-        fullscreenBtn.textContent = "↗";
-        isFullscreen = false;
-    }
-}
-
-function fallbackFullscreen() {
-    // iOS gibi cihazlar için tam ekran alternatifi
-    codeBox.classList.add('pseudo-fullscreen');
-    fullscreenBtn.textContent = "↙";
-    isFullscreen = true;
-}
-
-// Tam ekran değişimini dinleme
-document.addEventListener('fullscreenchange', updateFullscreenState);
-document.addEventListener('webkitfullscreenchange', updateFullscreenState);
-
-function updateFullscreenState() {
-    if (!document.fullscreenElement && !document.webkitFullscreenElement) {
-        fullscreenBtn.textContent = "↗";
-        isFullscreen = false;
-        codeBox.classList.remove('pseudo-fullscreen');
-    }
-}
 
 
 // ESC tuşu ile tam ekran modundan çıkma
