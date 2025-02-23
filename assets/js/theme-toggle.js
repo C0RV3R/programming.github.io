@@ -26,6 +26,7 @@ toggleBtn.addEventListener('click', () => {
 const fullscreenBtn = document.querySelector('.fullscreen-btn');
 const codeBox = document.querySelector('.code-box');
 
+// Tam ekran işlevi
 fullscreenBtn.addEventListener('click', () => {
     if (!document.fullscreenElement && !document.webkitFullscreenElement) {
         // Tam ekran başlatma
@@ -53,6 +54,7 @@ fullscreenBtn.addEventListener('click', () => {
         fullscreenBtn.textContent = "↗"; // Tam ekran açma simgesi
     }
 });
+
 
 
 // ESC tuşu ile tam ekran modundan çıkma
