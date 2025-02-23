@@ -430,7 +430,7 @@ body.dark .info-section:hover {
     inherits: false;
   }
 
- .code-box {
+  .code-box {
     background-color: #1e1e1e;
     position: relative;
     max-height: 500px;
@@ -463,16 +463,17 @@ body.dark .info-section:hover {
     outline: none;
 }
 
+/* Mobil uyumlu düzenlemeler */
 @media (max-width: 768px) {
     .code-box {
-        max-height: 400px; 
+        max-height: 400px;
         padding: 8px;
     }
 
     .fullscreen-btn {
-        font-size: 24px; 
+        font-size: 24px;
         top: 8px;
-        left: 8px; 
+        left: 8px;
     }
 }
 
@@ -488,6 +489,7 @@ body.dark .info-section:hover {
         left: 6px;
     }
 }
+
 
 
   /* Image Styling */

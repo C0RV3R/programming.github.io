@@ -26,32 +26,34 @@ toggleBtn.addEventListener('click', () => {
 const fullscreenBtn = document.querySelector('.fullscreen-btn');
 const codeBox = document.querySelector('.code-box');
 
-// Tam ekran işlevini açmak için
 fullscreenBtn.addEventListener('click', () => {
-    if (!document.fullscreenElement) {
+    if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+        // Tam ekran başlatma
         if (codeBox.requestFullscreen) {
             codeBox.requestFullscreen();
+        } else if (codeBox.webkitRequestFullscreen) { // Safari için
+            codeBox.webkitRequestFullscreen();
         } else if (codeBox.mozRequestFullScreen) { // Firefox için
             codeBox.mozRequestFullScreen();
-        } else if (codeBox.webkitRequestFullscreen) { // Safari ve Chrome için
-            codeBox.webkitRequestFullscreen();
         } else if (codeBox.msRequestFullscreen) { // IE/Edge için
             codeBox.msRequestFullscreen();
         }
         fullscreenBtn.textContent = "↙"; // Tam ekran simgesi
     } else {
+        // Tam ekrandan çıkma
         if (document.exitFullscreen) {
             document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) { // Safari için
+            document.webkitExitFullscreen();
         } else if (document.mozCancelFullScreen) { // Firefox için
             document.mozCancelFullScreen();
-        } else if (document.webkitExitFullscreen) { // Safari ve Chrome için
-            document.webkitExitFullscreen();
         } else if (document.msExitFullscreen) { // IE/Edge için
             document.msExitFullscreen();
         }
         fullscreenBtn.textContent = "↗"; // Tam ekran açma simgesi
     }
 });
+
 
 // ESC tuşu ile tam ekran modundan çıkma
 document.addEventListener('keydown', (e) => {
