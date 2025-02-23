@@ -462,50 +462,35 @@ body.dark .info-section:hover {
 
 @media (min-width: 769px) {
     .code-box {
-        max-height: 500px; 
+        max-height: 500px;
+    }
+
+    .fullscreen-btn {
+        display: block;
     }
 }
 
-
 @media (max-width: 768px) {
     .code-box {
-        height: 100vh; 
-        max-width: 100%; 
+        height: 100vh;
+        max-width: 100%;
         padding: 15px;
     }
 
     .fullscreen-btn {
-        font-size: 24px;
-        top: 8px;
-        left: 8px;
+        display: none;
     }
 }
 
 @media (max-width: 480px) {
     .code-box {
-        height: 100vh; 
-        max-width: 100%;  
+        height: 100vh;
+        max-width: 100%;
         padding: 10px;
     }
 
     .fullscreen-btn {
-        font-size: 20px;
-        top: 6px;
-        left: 6px;
-    }
-}
-
-
-@media (max-width: 480px) {
-    .code-box {
-        max-height: 100vh;  /* Mobilde tam ekran yapacak şekilde */
-        padding: 10px;
-    }
-
-    .fullscreen-btn {
-        font-size: 20px;
-        top: 6px;
-        left: 6px;
+        display: none;
     }
 }
 
