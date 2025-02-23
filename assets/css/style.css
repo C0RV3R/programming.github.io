@@ -430,7 +430,7 @@ body.dark .info-section:hover {
     inherits: false;
   }
 
-  .code-box {
+ .code-box {
     background-color: #1e1e1e;
     position: relative;
     max-height: 500px;
@@ -461,6 +461,32 @@ body.dark .info-section:hover {
 
 .fullscreen-btn:focus {
     outline: none;
+}
+
+@media (max-width: 768px) {
+    .code-box {
+        max-height: 400px; 
+        padding: 8px;
+    }
+
+    .fullscreen-btn {
+        font-size: 24px; 
+        top: 8px;
+        left: 8px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .code-box {
+        max-height: 350px;
+        padding: 6px;
+    }
+
+    .fullscreen-btn {
+        font-size: 20px;
+        top: 6px;
+        left: 6px;
+    }
 }
 
 
