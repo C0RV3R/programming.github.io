@@ -1,8 +1,8 @@
  const assignments = [
-            { name: 'Data Structures - Project 1 (Java)', file: 'assignment4.html' },
-            { name: 'LabWork #1 (Java)', file: 'assignment1.html' },
-            { name: 'LabWork #5 (C)', file: 'assignment2.html' },
-            { name: 'Project #1 (Java)', file: 'assignment3.html' }
+            { name: 'Data Structures - Project 1 (Java)', file: 'assignment4' },
+            { name: 'LabWork #1 (Java)', file: 'assignment1' },
+            { name: 'LabWork #5 (C)', file: 'assignment2' },
+            { name: 'Project #1 (Java)', file: 'assignment3' }
 
         ];
 
