@@ -1,10 +1,9 @@
- const assignments = [
-            { name: 'Data Structures - Project 1 (Java)', file: 'assignment4' },
-            { name: 'LabWork #1 (Java)', file: 'assignment1' },
-            { name: 'LabWork #5 (C)', file: 'assignment2' },
-            { name: 'Project #1 (Java)', file: 'assignment3' }
-
-        ];
+const assignments = [
+    { name: 'Data Structures - Project 1 (Java)', file: '../assignments/assignment4' },
+    { name: 'LabWork #1 (Java)', file: '../assignments/assignment1' },
+    { name: 'LabWork #5 (C)', file: '../assignments/assignment2' },
+    { name: 'Project #1 (Java)', file: '../assignments/assignment3' }
+];
 
         window.onload = function() {
             const buttonContainer = document.getElementById('assignment-buttons');
