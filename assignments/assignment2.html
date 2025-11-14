@@ -69,54 +69,11 @@ int main() {
         </section>
     </main>
 
-    <footer>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p style="text-align: center">&copy; 2025 All Rights Reserved.</p>
-        <p style="text-align: right"><a href="portfolio.html" class="about-link">About Me</a></p>
-    </footer>
+    <div id="footer"></div>
 
     <button class="toggle-btn">🌙</button>
 
-    <!-- External JS for Theme Toggle -->
     <script src="../assets/js/theme-toggle.js"></script>
-    <script>
-        // JavaScript for Copy button functionality
-        function copyCode() {
-            const code = document.querySelector('.code-box pre code');
-            const text = code.textContent;
-
-            // Copy the code text to clipboard
-            navigator.clipboard.writeText(text).then(function() {
-                alert('Code copied to clipboard!');
-            }).catch(function(err) {
-                console.error('Error copying text: ', err);
-                alert('Failed to copy text!');
-            });
-        }
-
-        // JavaScript for theme toggle functionality
-        const toggleBtn = document.querySelector('.toggle-btn');
-        const body = document.body;
-
-        toggleBtn.addEventListener('click', () => {
-            body.classList.toggle('dark');
-
-            // Save the night mode setting in localStorage
-            if (body.classList.contains('dark')) {
-                localStorage.setItem('nightMode', 'enabled');
-                toggleBtn.textContent = '🌞'; // Sun icon for light mode
-            } else {
-                localStorage.setItem('nightMode', 'disabled');
-                toggleBtn.textContent = '🌙'; // Moon icon for dark mode
-            }
-        });
-
-        // Apply night mode if it's saved in localStorage
-        if (localStorage.getItem('nightMode') === 'enabled') {
-            body.classList.add('dark');
-            toggleBtn.textContent = '🌞'; // Sun icon for light mode
-        }
-    </script>
+    <script src="../assets/js/footer.js"></script>
 </body>
 </html>

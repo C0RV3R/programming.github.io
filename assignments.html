@@ -23,49 +23,15 @@
         <section class="assignment-list">
             <h2>Available Assignments</h2>
             <div id="assignment-buttons">
-                <!-- Dynamically generated buttons will appear here -->
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p style="text-align: center">&copy; 2025 All Rights Reserved.</p>
-        <p style="text-align: right"><a href="portfolio.html" class="about-link">About Me</a></p>
-    </footer>
+    <div id="footer"></div>
 
     <button class="toggle-btn">🌙</button>
 
     <script src="assets/js/theme-toggle.js"></script>
-    <script>
-        // List of assignments with display name and file path
-        const assignments = [
-            { name: 'Project #1 (Java)', file: 'assignments/assignment3.html' },
-            { name: 'LabWork #1 (Java)', file: 'assignments/assignment1.html' },
-            { name: 'LabWork #5 (C)', file: 'assignments/assignment2.html' }
-        ];
-
-        // Function to dynamically create buttons for each assignment
-        window.onload = function() {
-            const buttonContainer = document.getElementById('assignment-buttons');
-            
-            // Check if there are any assignments
-            if (assignments.length === 0) {
-                // If no assignments, hide the button container
-                buttonContainer.style.display = 'none';
-            } else {
-                // If assignments exist, create the buttons
-                assignments.forEach(assignment => {
-                    // Create a button for each assignment
-                    const button = document.createElement('button');
-                    button.textContent = `Go to ${assignment.name}`; // Display the name of the assignment
-                    button.classList.add('assignment-btn');
-                    button.onclick = () => window.location.href = assignment.file;
-                    buttonContainer.appendChild(button);
-                });
-            }
-        };
-    </script>
+    <script src="assets/js/footer.js"></script>
 </body>
 </html>
